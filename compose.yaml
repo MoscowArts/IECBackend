@@ -1,0 +1,7 @@
+﻿services:
+  iecbackend.api:
+    image: iecbackend.api
+    build:
+      context: .
+      dockerfile: IECBackend.Api/Dockerfile
+

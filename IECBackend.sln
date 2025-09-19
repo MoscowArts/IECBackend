@@ -1,0 +1,21 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IECBackend.Api", "IECBackend.Api\IECBackend.Api.csproj", "{27337D56-7493-4F27-9FA4-2A0DA88FBDD5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A03D0D5B-F7C7-40CE-B88B-4511CFCEC652}"
+	ProjectSection(SolutionItems) = preProject
+		compose.yaml = compose.yaml
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{27337D56-7493-4F27-9FA4-2A0DA88FBDD5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27337D56-7493-4F27-9FA4-2A0DA88FBDD5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27337D56-7493-4F27-9FA4-2A0DA88FBDD5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27337D56-7493-4F27-9FA4-2A0DA88FBDD5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
