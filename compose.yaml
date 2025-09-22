@@ -4,4 +4,39 @@
     build:
       context: .
       dockerfile: IECBackend.Api/Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      RESTART: always
+    ports:
+      - "8080:8080"
+    networks:
+      - backend
+    depends_on:
+      database:
+        condition: service_healthy    
+    
+  database:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: 'postgres'
+      POSTGRES_PASSWORD: 'password'
+      POSTGRES_DB: 'iec'
+    networks:
+      - backend
+    ports:
+      - "50000:5432"
+    volumes:
+      - postgres_database:/var/lib/postgresql/data
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U postgres" ]
+      interval: 5s
+      timeout: 5s
+      retries: 5
 
+networks:
+  backend:
+    driver: bridge
+
+volumes:
+  postgres_database:
