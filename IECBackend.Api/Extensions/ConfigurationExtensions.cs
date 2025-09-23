@@ -1,3 +1,7 @@
+using System.Text.Json;
+using System.Text.Json.Serialization;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.OpenApi.Models;
 
 namespace IECBackend.Api.Extensions;
@@ -46,5 +50,32 @@ public static class ConfigurationExtensions
                 { schema, new[] { "Bearer" } }
             });
         });
+    }
+    
+    public static IServiceCollection AddApiControllers(this IServiceCollection services, IWebHostEnvironment environment)
+    {
+        if (!environment.IsEnvironment("Test"))
+        {
+            services.AddControllers(options =>
+            {
+                options.Filters.Add(new AuthorizeFilter(new AuthorizationPolicyBuilder()
+                    .RequireAuthenticatedUser()
+                    .Build()));
+            }).AddJsonOptions(o =>
+            {
+                o.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
+                o.JsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
+            });
+        }
+        else
+        {
+            services.AddControllers().AddJsonOptions(o =>
+            {
+                o.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
+                o.JsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
+            });
+        }
+
+        return services;
     }
 }

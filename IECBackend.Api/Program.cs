@@ -7,7 +7,7 @@ var configuration = builder.Configuration;
 
 builder.Services.AddRouting(options => options.LowercaseUrls = true);
 
-builder.Services.AddControllers();
+builder.Services.AddApiControllers(builder.Environment);
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerWithAuth();

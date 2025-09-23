@@ -16,7 +16,6 @@ public class CreateUserMessageHandler(IUserRepository userRepository, IPasswordH
         var password = passwordHasher.Hash(request.CreateUserRequestDto.Password);
         var dbUser = new DbUser
         {
-            Username = request.CreateUserRequestDto.Username,
             PasswordHash = password,
             Fullname = request.CreateUserRequestDto.Fullname,
             Email = request.CreateUserRequestDto.Email,

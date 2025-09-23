@@ -8,11 +8,6 @@ public class DbUser
     public int Id { get; set; }
     
     /// <summary>
-    /// Логин (уникальный)
-    /// </summary>
-    public string Username { get; set; }
-    
-    /// <summary>
     /// 
     /// </summary>
     public string PasswordHash { get; set; }

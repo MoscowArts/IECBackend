@@ -22,7 +22,7 @@ public class LoginMessageHandler(IUserRepository userRepository, IPasswordHasher
         var token = await jwtService.CreateAccessTokenAsync(new List<Claim>
         {
             new("email", request.Email),
-            new("role", candidate.Email),
+            new("role", candidate.Role.ToString()),
             new("id", candidate.Id.ToString())
         });
 

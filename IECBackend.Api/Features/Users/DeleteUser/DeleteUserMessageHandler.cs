@@ -9,7 +9,7 @@ public class DeleteUserMessageHandler(IUserRepository userRepository) : IMessage
     public async Task<Unit> Handle(DeleteUserMessage request, CancellationToken cancellationToken)
     {
         if(!await userRepository.ExistsAsync(request.Id))
-            throw UserNotFoundException.WithSuchId(request.Id); // TODO: Сделать чтобы удалить мог только сам пользователь или админ
+            throw UserNotFoundException.WithSuchId(request.Id);
         
         await userRepository.DeleteAsync(request.Id);
         return Unit.Value;
