@@ -3,4 +3,4 @@ using MediatR;
 
 namespace IECBackend.Api.Features.Users.CreateUser;
 
-public record CreateUserMessage(CreateUserRequestDto CreateUserRequestDto) : IMessage<Unit>;
+public record CreateUserMessage(CreateUserRequestDto CreateUserRequestDto) : IMessage<int>;

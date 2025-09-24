@@ -1,4 +1,5 @@
 using IECBackend.Api.Features.Auth.Login;
+using IECBackend.Api.Features.Users;
 using IECBackend.Api.Features.Users.CreateUser;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
@@ -22,8 +23,12 @@ public class AuthController(IMediator mediator) : ControllerBase
     [HttpPost("register")]
     public async Task<IActionResult> Register(CreateUserRequestDto user, CancellationToken cancellationToken)
     {
-        await mediator.Send(new CreateUserMessage(user), cancellationToken);
+        var id = await mediator.Send(new CreateUserMessage(user), cancellationToken);
         
-        return Created();
-    }
+        return CreatedAtAction(
+            actionName: nameof(UsersController.GetById),
+            controllerName: "Users",
+            routeValues: new { userId = id },
+            value: null
+        );    }
 }

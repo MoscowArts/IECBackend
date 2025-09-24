@@ -21,6 +21,7 @@ builder.Services.AddApiControllers(builder.Environment);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerWithAuth();
 
+builder.Services.AddMinio(configuration);
 builder.Services.AddDapper();
 builder.Services.MigrateDatabase(configuration);
 builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(typeof(Program).Assembly));

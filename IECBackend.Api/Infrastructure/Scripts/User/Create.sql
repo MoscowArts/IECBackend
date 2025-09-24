@@ -15,4 +15,6 @@ VALUES (
         @Role, 
         @Organization,
         @IsActive,
-        @CreatedAt);
+        @CreatedAt)
+    
+RETURNING id;
