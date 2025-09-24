@@ -23,12 +23,7 @@ public class UpdateIssueRequestDtoValidator : AbstractValidator<IssueRequestDto>
             .LessThan(DateTime.UtcNow.AddYears(1))
             .WithMessage("Срок устранения не может превышать 1 год от текущей даты");
         
-        When(x => x.Image != null, () =>
-        {
-            RuleFor(x => x.Image)
-                .Must(BeValidImageSize).WithMessage("Размер изображения не должен превышать 5MB")
-                .Must(BeValidImageFormat).WithMessage("Изображение должно быть в формате JPEG, PNG или GIF");
-        });
+
     }
     private bool BeValidImageSize(byte[] image)
     {

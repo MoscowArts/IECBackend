@@ -2,6 +2,7 @@
 using IECBackend.Api.Features.Issues.DeleteIssue;
 using IECBackend.Api.Features.Issues.GetByIdIssue;
 using IECBackend.Api.Features.Issues.UpdateIssue;
+using IECBackend.Api.Services.Interfaces;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -11,7 +12,7 @@ namespace IECBackend.Api.Features.Issues;
 /// Контроллер для управления заявками (issues)
 /// </summary>
 [Route("issues/")]
-public class IssuesController(IMediator mediator) : Controller
+public class IssuesController(IMediator mediator,IMinioService minioService) : Controller
 {
     /// <summary>
     /// Получить заявку по идентификатору
@@ -75,14 +76,22 @@ public class IssuesController(IMediator mediator) : Controller
     [HttpPost]
     [AllowAnonymous]
     public async Task<IActionResult> Create(string Description, string Coordinates,
-        DateTime TermOfElimination,byte[] Image, CancellationToken cancellationToken)
+        DateTime TermOfElimination,IFormFile? Image, CancellationToken cancellationToken)
     {
+        if (Image == null || Image.Length == 0)
+            return BadRequest("Файл пустой");
+
+        var fileName = $"{Guid.NewGuid()}_{Image.FileName}";
+
+        await using var stream = Image.OpenReadStream();
+        
+        await minioService.UploadFileAsync(stream, fileName, Image.ContentType);
         var tmp = new IssueRequestDto
         {
             Description = Description,
             Coordinates = Coordinates,
             TermOfElimination = TermOfElimination,
-            Image = Image
+            Image = fileName
         };
         await mediator.Send(new CreateIssueCommand(tmp), cancellationToken);
         return Ok();

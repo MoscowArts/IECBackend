@@ -26,7 +26,7 @@ public class DbIssue
     /// <summary>
     /// 
     /// </summary>
-    public byte[] Image { get; set; }
+    public string Image { get; set; }
     
     /// <summary>
     /// 
