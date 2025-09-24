@@ -5,9 +5,9 @@ using MediatR;
 
 namespace IECBackend.Api.Features.Users.CreateUser;
 
-public class CreateUserMessageHandler(IUserRepository userRepository, IPasswordHasher passwordHasher) : IMessageHandler<CreateUserMessage, Unit>
+public class CreateUserMessageHandler(IUserRepository userRepository, IPasswordHasher passwordHasher) : IMessageHandler<CreateUserMessage, int>
 {
-    public async Task<Unit> Handle(CreateUserMessage request, CancellationToken cancellationToken)
+    public async Task<int> Handle(CreateUserMessage request, CancellationToken cancellationToken)
     {
         var isCreated = await userRepository.ExistsAsync(request.CreateUserRequestDto.Email);
         if (isCreated)
@@ -26,8 +26,8 @@ public class CreateUserMessageHandler(IUserRepository userRepository, IPasswordH
             CreatedAt = DateTime.UtcNow
         };
         
-        await userRepository.AddAsync(dbUser);
+        var id = await userRepository.AddAsync(dbUser);
         
-        return Unit.Value;
+        return id;
     }
 }
