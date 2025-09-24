@@ -1,6 +1,7 @@
 using DbUp;
 using FluentValidation;
 using IECBackend.Api.Behaviors;
+using IECBackend.Api.Features.Issues;
 using IECBackend.Api.Features.Users;
 using IECBackend.Api.Infrastructure.Dapper;
 using IECBackend.Api.Infrastructure.Dapper.Interfaces;
@@ -62,6 +63,7 @@ public static class InfrastructureHostExtensions
         services.AddSingleton<IDbConnectionFactory, DefaultConnectionFactory>();
 
         services.AddScoped<IUserRepository, UserRepository>();
+        services.AddScoped<IIssueRepository, IssueRepository>();
     }
     
     /// <summary>

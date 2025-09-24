@@ -31,8 +31,13 @@
         <Generator>ResXFileCodeGenerator</Generator>
         <LastGenOutput>User.Designer.cs</LastGenOutput>
       </EmbeddedResource>
+      <EmbeddedResource Include="Infrastructure\Migrations\0002_CreateIssueTable.sql" />
         <None Remove="Infrastructure\Migrations\0001_CreateUserTable.sql"/>
         <EmbeddedResource Include="Infrastructure\Migrations\0001_CreateUserTable.sql"/>
+        <EmbeddedResource Update="Infrastructure\Scripts\Issue\Issue.resx">
+          <Generator>ResXFileCodeGenerator</Generator>
+          <LastGenOutput>Issue.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
     </ItemGroup>
 
     <ItemGroup>
@@ -40,6 +45,11 @@
         <DesignTime>True</DesignTime>
         <AutoGen>True</AutoGen>
         <DependentUpon>User.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Infrastructure\Scripts\Issue\Issue.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Issue.resx</DependentUpon>
       </Compile>
     </ItemGroup>
 

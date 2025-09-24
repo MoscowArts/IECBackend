@@ -1,0 +1,1 @@
+DELETE FROM issues WHERE id = @Id;
