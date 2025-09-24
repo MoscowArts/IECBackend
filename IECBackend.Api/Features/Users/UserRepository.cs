@@ -6,9 +6,9 @@ namespace IECBackend.Api.Features.Users;
 
 public class UserRepository(IDapperContext<IDapperSettings> dapperContext) : IUserRepository
 {
-    public async Task AddAsync(DbUser dbUser, ITransaction? transaction = null)
+    public async Task<int> AddAsync(DbUser dbUser, ITransaction? transaction = null)
     {
-        await dapperContext.Command(new QueryObject(User.Create, dbUser), transaction);
+        return await dapperContext.CommandWithResponse<int>(new QueryObject(User.Create, dbUser), transaction);
     }
 
     public async Task UpdateAsync(int userId, DbUser dbUser, ITransaction? transaction = null)
