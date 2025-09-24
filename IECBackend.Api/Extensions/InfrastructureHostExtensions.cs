@@ -10,6 +10,7 @@ using IECBackend.Api.Infrastructure.Factories.Interfaces;
 using IECBackend.Api.Services;
 using IECBackend.Api.Services.Interfaces;
 using MediatR;
+using Minio;
 
 namespace IECBackend.Api.Extensions;
 
@@ -82,11 +83,26 @@ public static class InfrastructureHostExtensions
     }
     
     /// <summary>
+    /// Подключение хранилища файлов.
+    /// </summary>
+    public static IServiceCollection AddMinio(this IServiceCollection services, IConfiguration configuration)
+    {
+        return services
+            .AddSingleton<IMinioClient>(_ =>
+                new MinioClient()
+                    .WithEndpoint(configuration["Minio:Endpoint"])
+                    .WithCredentials(configuration["Minio:AccessKey"], configuration["Minio:SecretKey"])
+                    .WithSSL(false)
+                    .Build());
+    }
+    
+    /// <summary>
     /// Добавляет сервисы приложения в коллекцию сервисов.
     /// </summary>
     /// <param name="services">Коллекция сервисов.</param>
     public static void AddApplication(this IServiceCollection services)
     {
         services.AddScoped<IJwtTokenService, JwtTokenService>();
+        services.AddScoped<IMinioService, MinioService>();
     }
 }

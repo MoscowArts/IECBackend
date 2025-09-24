@@ -17,6 +17,13 @@ public class UsersController(IMediator mediator) : BaseAuthController
         return Ok(user);
     }
 
+    [HttpGet("get-me")]
+    public async Task<IActionResult> GetMe(CancellationToken cancellationToken)
+    {
+        var user = await mediator.Send(new GetByIdUserMessage(UserId), cancellationToken);
+        return Ok(user);
+    }
+
     [HttpDelete]
     public async Task<IActionResult> Delete(CancellationToken cancellationToken)
     {
