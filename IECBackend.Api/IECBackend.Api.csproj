@@ -36,21 +36,35 @@
         <Generator>ResXFileCodeGenerator</Generator>
         <LastGenOutput>User.Designer.cs</LastGenOutput>
       </EmbeddedResource>
-      <EmbeddedResource Include="Infrastructure\Migrations\0002_CreateProjectTable.sql" />
         <None Remove="Infrastructure\Migrations\0001_CreateUserTable.sql"/>
         <EmbeddedResource Include="Infrastructure\Migrations\0001_CreateUserTable.sql"/>
-        <EmbeddedResource Update="Infrastructure\Scripts\Issue\Issue.resx">
-          <Generator>ResXFileCodeGenerator</Generator>
-          <LastGenOutput>Issue.Designer.cs</LastGenOutput>
-        </EmbeddedResource>
+    </ItemGroup>
+    
+    <ItemGroup>
         <EmbeddedResource Update="Infrastructure\Scripts\Project\Project.resx">
           <Generator>ResXFileCodeGenerator</Generator>
           <LastGenOutput>Project.Designer.cs</LastGenOutput>
         </EmbeddedResource>
+        <None Remove="Infrastructure\Migrations\0002_CreateProjectTable.sql"/>
+        <EmbeddedResource Include="Infrastructure\Migrations\0002_CreateProjectTable.sql"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <EmbeddedResource Update="Infrastructure\Scripts\Issue\Issue.resx">
+            <Generator>ResXFileCodeGenerator</Generator>
+            <LastGenOutput>Issue.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <None Remove="Infrastructure\Migrations\0003_CreateIssueTable.sql"/>
+        <EmbeddedResource Include="Infrastructure\Migrations\0003_CreateIssueTable.sql"/>
+    </ItemGroup>
+    
+    <ItemGroup>
         <EmbeddedResource Update="Infrastructure\Scripts\Material\Material.resx">
           <Generator>ResXFileCodeGenerator</Generator>
           <LastGenOutput>Material.Designer.cs</LastGenOutput>
         </EmbeddedResource>
+        <None Remove="Infrastructure\Migrations\0004_CreateMaterialTable.sql"/>
+        <EmbeddedResource Include="Infrastructure\Migrations\0004_CreateMaterialTable.sql"/>
     </ItemGroup>
 
     <ItemGroup>
