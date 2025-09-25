@@ -45,11 +45,11 @@ public class ProjectsController(IMediator mediator) : Controller
     }
 
 
-    [HttpPatch("{issueId:int}")]
+    [HttpPatch("{projectsId:int}")]
     [AllowAnonymous]
-    public async Task<IActionResult> Update(int issueId, UpdateProjectRequestDto request, CancellationToken cancellationToken)
+    public async Task<IActionResult> Update(int projectsId, UpdateProjectRequestDto request, CancellationToken cancellationToken)
     {
-        await mediator.Send(new UpdateProjectCommand(issueId, request), cancellationToken);
+        await mediator.Send(new UpdateProjectCommand(projectsId, request), cancellationToken);
         return Ok();
     }
     

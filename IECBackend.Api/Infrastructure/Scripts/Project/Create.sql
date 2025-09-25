@@ -10,5 +10,5 @@ VALUES (
            @Coordinates,
            @StartDate,
            @EndDate,
-           @ConstractorId,
-           @SupervisorId);
+           @AssignedContractorId,
+           @AssignedSupervisorId);

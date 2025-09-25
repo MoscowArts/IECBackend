@@ -47,6 +47,10 @@
           <Generator>ResXFileCodeGenerator</Generator>
           <LastGenOutput>Project.Designer.cs</LastGenOutput>
         </EmbeddedResource>
+        <EmbeddedResource Update="Infrastructure\Scripts\Material\Material.resx">
+          <Generator>ResXFileCodeGenerator</Generator>
+          <LastGenOutput>Material.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
     </ItemGroup>
 
     <ItemGroup>
@@ -64,6 +68,11 @@
         <DesignTime>True</DesignTime>
         <AutoGen>True</AutoGen>
         <DependentUpon>Project.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Infrastructure\Scripts\Material\Material.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Material.resx</DependentUpon>
       </Compile>
     </ItemGroup>
 

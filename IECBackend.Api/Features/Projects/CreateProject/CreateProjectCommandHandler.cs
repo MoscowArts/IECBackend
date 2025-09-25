@@ -16,8 +16,8 @@ public class CreateProjectCommandHandler(IProjectRepository projectRepository) :
             Coordinates = request.CreateProjectDto.Coordinates,
             StartDate = request.CreateProjectDto.StartDate,
             EndDate = request.CreateProjectDto.EndDate,
-            AssignedContractorId = request.CreateProjectDto.ConstractorId,
-            AssignedSupervisorId = request.CreateProjectDto.SupervisorId,
+            AssignedContractorId = request.CreateProjectDto.AssignedContractorId,
+            AssignedSupervisorId = request.CreateProjectDto.AssignedSupervisorId,
             CreatedAt = DateTime.UtcNow,
             UpdatedAt = DateTime.UtcNow,
         };

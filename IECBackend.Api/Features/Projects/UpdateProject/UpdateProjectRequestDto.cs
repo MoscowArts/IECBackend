@@ -6,6 +6,6 @@ public class UpdateProjectRequestDto
     public string? Coordinates { get; set; }
     public DateTime? StartDate { get; set; }
     public DateTime? EndDate { get; set; }
-    public int? ConstractorId { get; set; }
-    public int? SupervisorId { get; set; }
+    public int? AssignedContractorId { get; set; }
+    public int? AssignedSupervisorId { get; set; }
 }

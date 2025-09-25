@@ -17,8 +17,8 @@ public class UpdateProjectCommandHandler(IProjectRepository projectRepository) :
         project.Coordinates = request.Project.Coordinates ?? project.Coordinates;
         project.StartDate = request.Project.StartDate ?? project.StartDate;
         project.EndDate = request.Project.EndDate ?? project.EndDate;
-        project.AssignedContractorId = request.Project.ConstractorId ?? project.AssignedContractorId;
-        project.AssignedSupervisorId = request.Project.SupervisorId ?? project.AssignedSupervisorId;
+        project.AssignedContractorId = request.Project.AssignedContractorId ?? project.AssignedContractorId;
+        project.AssignedSupervisorId = request.Project.AssignedSupervisorId ?? project.AssignedSupervisorId;
         project.UpdatedAt=DateTime.UtcNow;
         await projectRepository.UpdateAsync(project.Id, project);
         
