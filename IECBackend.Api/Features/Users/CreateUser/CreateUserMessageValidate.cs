@@ -6,10 +6,6 @@ public class CreateUserMessageValidate : AbstractValidator<CreateUserMessage>
 {
     public CreateUserMessageValidate()
     {
-        RuleFor(x => x.CreateUserRequestDto.Username)
-            .NotEmpty()
-            .Length(3, 30);
-        
         RuleFor(x => x.CreateUserRequestDto.Password)
             .NotEmpty()
             .Length(6, 30);

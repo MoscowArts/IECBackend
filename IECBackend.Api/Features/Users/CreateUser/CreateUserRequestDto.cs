@@ -3,11 +3,6 @@ namespace IECBackend.Api.Features.Users.CreateUser;
 public class CreateUserRequestDto
 {
     /// <summary>
-    /// Логин (уникальный)
-    /// </summary>
-    public string Username { get; set; }
-    
-    /// <summary>
     /// 
     /// </summary>
     public string Password { get; set; }
