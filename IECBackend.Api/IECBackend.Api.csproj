@@ -36,8 +36,6 @@
         <Generator>ResXFileCodeGenerator</Generator>
         <LastGenOutput>User.Designer.cs</LastGenOutput>
       </EmbeddedResource>
-        <None Remove="Infrastructure\Migrations\0001_CreateUserTable.sql"/>
-        <EmbeddedResource Include="Infrastructure\Migrations\0001_CreateUserTable.sql"/>
     </ItemGroup>
     
     <ItemGroup>
@@ -66,6 +64,14 @@
         <None Remove="Infrastructure\Migrations\0004_CreateMaterialTable.sql"/>
         <EmbeddedResource Include="Infrastructure\Migrations\0004_CreateMaterialTable.sql"/>
     </ItemGroup>
+    <ItemGroup>
+        <EmbeddedResource Update="Infrastructure\Scripts\WorkTask\WorkTask.resx">
+            <Generator>ResXFileCodeGenerator</Generator>
+            <LastGenOutput>WorkTask.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <None Remove="Infrastructure\Migrations\0005_CreateTaskTable.sql"/>
+        <EmbeddedResource Include="Infrastructure\Migrations\0005_CreateTaskTable.sql"/>
+    </ItemGroup>
 
     <ItemGroup>
       <Compile Update="Infrastructure\Scripts\User\User.Designer.cs">
@@ -87,6 +93,11 @@
         <DesignTime>True</DesignTime>
         <AutoGen>True</AutoGen>
         <DependentUpon>Material.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Infrastructure\Scripts\WorkTask\WorkTask.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>WorkTask.resx</DependentUpon>
       </Compile>
     </ItemGroup>
 

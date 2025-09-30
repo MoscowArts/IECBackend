@@ -1,4 +1,4 @@
-﻿namespace IECBackend.Api.Features.Projects;
+﻿namespace IECBackend.Api.Features.Projects.CreateProject;
 
 public class CreateProjectRequestDto
 {

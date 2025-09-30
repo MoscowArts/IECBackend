@@ -1,7 +1,8 @@
 ﻿using IECBackend.Api.Exceptions.Project;
+using IECBackend.Api.Features.Projects.DeleteProject;
 using MediatR;
 
-namespace IECBackend.Api.Features.Projects.DeleteProject;
+namespace IECBackend.Api.Features.Projects.GetByIdProject;
 
 
 
