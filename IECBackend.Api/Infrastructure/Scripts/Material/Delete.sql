@@ -1,0 +1,1 @@
+DELETE FROM materials WHERE id = @Id;

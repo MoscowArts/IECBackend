@@ -1,0 +1,1 @@
+SELECT EXISTS(SELECT 1 FROM work_task WHERE id = @Id);
